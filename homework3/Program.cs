@@ -7,7 +7,8 @@ class Program
         //DivideByFive();
         //ArithmeticOperations();
         //Swap();
-        Table();
+        //Table();
+        EvenSquared();
     }
 
     
@@ -125,6 +126,29 @@ class Program
         for (int i = 1; i < 10; i++)
         {
             Console.WriteLine($"{x} * {i} = {x * i}");
+        }
+    }
+
+    #endregion
+    
+    #region evensquared
+
+    static void EvenSquared()
+    {
+        Console.WriteLine("Enter X: ");
+
+        if (!int.TryParse(Console.ReadLine(), out var x))
+        {
+            Console.WriteLine("invalid input");
+            return;
+        }
+
+        for (int i = 0; i < x; i++)
+        {
+            if (i % 2 == 0)
+            {
+                Console.WriteLine(i * i);
+            }
         }
     }
 
