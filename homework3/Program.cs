@@ -5,7 +5,8 @@ class Program
     static void Main(string[] args)
     {
         //DivideByFive();
-        ArithmeticOperations();
+        //ArithmeticOperations();
+        Swap();
     }
 
     
@@ -64,5 +65,48 @@ class Program
         }
     }
     
+    #endregion
+    
+    
+    #region swap
+
+    static void Swap()
+    { 
+        Console.WriteLine("Enter X: ");
+
+        if (!int.TryParse(Console.ReadLine(), out var x))
+        {
+            Console.WriteLine("invalid input");
+            return;
+        }
+        
+        Console.WriteLine("Enter Y: ");
+        
+        if (!int.TryParse(Console.ReadLine(), out var y))
+        {
+            Console.WriteLine("invalid input");
+            return;
+        }
+
+        //var temp = x;
+        //x = y;
+        //y = temp;
+
+        //x = x * y;
+        //y = x / y;
+        //x = x / y;
+
+        //x = x + y;
+        //y = x - y;
+        //x = x - y;
+
+        x = x ^ y;
+        y = x ^ y;
+        x = x ^ y;
+        
+        Console.WriteLine("swapped X: " + x);
+        Console.WriteLine("swapped Y: " + y);
+    }
+
     #endregion
 }
