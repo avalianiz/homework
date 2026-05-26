@@ -6,7 +6,8 @@ class Program
     {
         //DivideByFive();
         //ArithmeticOperations();
-        Swap();
+        //Swap();
+        Table();
     }
 
     
@@ -67,7 +68,6 @@ class Program
     
     #endregion
     
-    
     #region swap
 
     static void Swap()
@@ -106,6 +106,26 @@ class Program
         
         Console.WriteLine("swapped X: " + x);
         Console.WriteLine("swapped Y: " + y);
+    }
+
+    #endregion
+    
+    #region table
+
+    static void Table()
+    {
+        Console.WriteLine("Enter X: ");
+
+        if (!int.TryParse(Console.ReadLine(), out var x))
+        {
+            Console.WriteLine("invalid input");
+            return;
+        }
+
+        for (int i = 1; i < 10; i++)
+        {
+            Console.WriteLine($"{x} * {i} = {x * i}");
+        }
     }
 
     #endregion
