@@ -5,7 +5,8 @@ class Program
     static void Main(string[] args)
     {
         //Task1();
-        Task2();
+        //Task2();
+        Task3();
     }
 
 
@@ -138,6 +139,30 @@ class Program
                     break;
             }
             
+        }
+    }
+
+    static void Task3()
+    {
+        Console.WriteLine("enter the number of elements: ");
+        int n = int.Parse(Console.ReadLine());
+        
+        Console.WriteLine("enter the elements");
+        int[] arr = Console.ReadLine()
+            .Split(' ')
+            .Select(int.Parse)
+            .ToArray();
+
+        var result = arr
+            .GroupBy(x => x)
+            .OrderBy(g => g.Key);
+
+        foreach (var group in result)
+        {
+            int count = group.Count();
+            int sum = group.Sum();
+            
+            Console.WriteLine($"{group.Key} appears {count} times. sum is  {sum}");
         }
     }
 }
