@@ -6,7 +6,8 @@ class Program
     {
         //Task1();
         //Task2();
-        Task3();
+        //Task3();
+        Task4();
     }
 
 
@@ -164,5 +165,24 @@ class Program
             
             Console.WriteLine($"{group.Key} appears {count} times. sum is  {sum}");
         }
+    }
+
+
+    static void Task4()
+    {
+        Console.WriteLine("enter top: ");
+        var n = int.Parse(Console.ReadLine());
+        var scores = new List<int>()
+        {
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+        };
+
+
+        var top = scores
+            .OrderByDescending(x => x)
+            .Take(n);
+
+        Console.WriteLine(string.Join(" ", top));
+        
     }
 }
