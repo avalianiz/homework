@@ -1,0 +1,61 @@
+﻿namespace homework4;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Task1();
+    }
+
+
+    static void Task1()
+    {
+        Console.WriteLine("enter the size of the array: ");
+        if (!int.TryParse(Console.ReadLine(), out var size))
+        {
+            Console.WriteLine("invalid input");
+            return;
+        }
+
+        Console.WriteLine("enter the numbers: ");
+        int[] numbers = new int[size];
+
+        string[] input = Console.ReadLine().Split(' ');
+
+        int[] evens = new int[size];
+        int[] odds = new int[size];
+
+        int evenCount = 0;
+        int oddCount = 0;
+
+        for (int i = 0; i < size; i++)
+        {
+            numbers[i] = int.Parse(input[i]);
+
+            if (numbers[i] % 2 == 0)
+            {
+                evens[evenCount] = numbers[i];
+                evenCount++;
+            }
+            else
+            {
+                odds[oddCount] = numbers[i];
+                oddCount++;
+            }
+        }
+
+        Console.Write("array#1: ");
+        for (int i = 0; i < evenCount; i++)
+        {
+            Console.Write(evens[i] + " ");
+        }
+
+        Console.WriteLine();
+
+        Console.Write("array#2: ");
+        for (int i = 0; i < oddCount; i++)
+        {
+            Console.Write(odds[i] + " ");
+        }
+    }
+}
