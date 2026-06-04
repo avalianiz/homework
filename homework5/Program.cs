@@ -4,7 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Task2();
+        //Task1();
+        //Task2();
+        Task3();
     }
 
 
@@ -43,5 +45,31 @@ class Program
             }
         }
         Console.WriteLine(jackpot ? "Yes" : "no");
+    }
+
+    static void Task3()
+    {
+        Console.WriteLine("enter the amount of wins: ");
+        if (!double.TryParse(Console.ReadLine(), out var wins))
+        {
+            Console.WriteLine("invalid input");
+            return;
+        }
+        
+        Console.WriteLine("enter the amount of draws: ");
+        if (!double.TryParse(Console.ReadLine(), out var draws))
+        {
+            Console.WriteLine("invalid input");
+            return;
+        }
+        
+        Console.WriteLine("enter the amount of loses: ");
+        if (!double.TryParse(Console.ReadLine(), out var loses))
+        {
+            Console.WriteLine("invalid input");
+            return;
+        }
+        
+        Console.WriteLine($"{wins * 3 + draws + loses * 0} Points");
     }
 }
