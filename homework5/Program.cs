@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Task1();
+        Task2();
     }
 
 
@@ -24,5 +24,24 @@ class Program
         
         Console.WriteLine($"Area of bigger square is {s2}, \nArea of smaller square is {s1}");
         Console.WriteLine($"Difference between areas is: {s2 - s1}");
+    }
+
+    static void Task2()
+    {
+        Console.WriteLine("enter your input: ");
+        string[] input = Console.ReadLine()
+            .Split(' ',  StringSplitOptions.RemoveEmptyEntries);
+
+        bool jackpot = true;
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            if (input[i] != input[0])
+            {
+                jackpot = false;
+                break;
+            }
+        }
+        Console.WriteLine(jackpot ? "Yes" : "no");
     }
 }
