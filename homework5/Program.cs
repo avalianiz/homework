@@ -7,7 +7,8 @@ class Program
         //Task1();
         //Task2();
         //Task3();
-        Task4();
+        //Task4();
+        Task5();
     }
 
 
@@ -118,5 +119,26 @@ class Program
             }
         }
         Console.WriteLine(pay);
+    }
+
+    static void Task5()
+    {
+        Console.WriteLine("enter progress: ");
+        int[] input = Console.ReadLine()
+            .Split(',',' ',  StringSplitOptions.RemoveEmptyEntries)
+            .Select(int.Parse)
+            .ToArray();
+
+        var progressDays = 0;
+
+        for (int i = 1; i < input.Length; i++)
+        {
+            if (input[i] > input[i - 1])
+            {
+                progressDays++;
+            }
+        }
+        
+        Console.WriteLine(progressDays);
     }
 }
