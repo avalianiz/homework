@@ -8,7 +8,8 @@ class Program
         //Task2();
         //Task3();
         //Task4();
-        Task5();
+        //Task5();
+        Task6();
     }
 
 
@@ -140,5 +141,32 @@ class Program
         }
         
         Console.WriteLine(progressDays);
+    }
+
+    static void Task6()
+    {
+        Console.WriteLine("enter words, use a comma or space as a delimiter:");
+        string[] words = Console.ReadLine()
+            .Split(new[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        
+        Console.WriteLine("enter n: ");
+        if (!int.TryParse(Console.ReadLine(), out var n))
+        {
+            Console.WriteLine("invalid input");
+            return;
+        }
+
+        var results = words
+            .Where(w => w.Length == n)
+            .ToList();
+
+        if (results.Count == 0)
+        {
+            Console.WriteLine("there are no words with that length");
+        }
+        else
+        {
+            Console.WriteLine(string.Join(", ", results));
+        }
     }
 }
