@@ -5,7 +5,8 @@ class Program
     static void Main(string[] args)
     {
         //Task1();
-        Task2();
+        //Task2();
+        Task3();
     }
 
     static void Task1()
@@ -38,5 +39,16 @@ class Program
         string result = eva.CheckStudentSubject(subject);
         
         Console.WriteLine(result);
+    }
+
+    static void Task3()
+    {
+        SecondStudent s1 = new GoodStudent("john");
+        SecondStudent s2 = new LazyStudent("doe");
+        SecondStudent s3 = new GoodStudent("ben");
+
+        Classroom classroom = new Classroom(s1, s2, s3);
+
+        classroom.ShowAllActivities();
     }
 }
