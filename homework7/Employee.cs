@@ -2,11 +2,11 @@
 
 internal class Employee
 {
-    private string firstName { get; set; }
-    private string lastName { get; set; }
-    private int Age { get; set; }
-    private string position { get; set; }
-    private int[] workedHours { get; set; }
+    public string firstName { get; set; }
+    public string lastName { get; set; }
+    public int Age { get; set; }
+    public string position { get; set; }
+    public int[] workedHours { get; set; }
 
 
     public double GetWeeklySalary()
