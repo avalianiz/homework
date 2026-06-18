@@ -6,7 +6,8 @@ class Program
     {
         //Task1();
         //MultTable.PrintTable();
-        StringToXml.ConvertToXml();
+        //StringToXml.ConvertToXml();
+        DaysTillBirthday.GetDaysTillBirthday();
     }
 
 
