@@ -7,7 +7,8 @@ class Program
         //Task1();
         //MultTable.PrintTable();
         //StringToXml.ConvertToXml();
-        DaysTillBirthday.GetDaysTillBirthday();
+        //DaysTillBirthday.GetDaysTillBirthday();
+        CaesarCipher.Encrypt();
     }
 
 
