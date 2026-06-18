@@ -2,7 +2,7 @@
 
 public class LastLineReader
 {
-    private static string filePath = 
+    private static string _filePath = 
         Path.Combine(@"D:\RiderProjects\homework\homework9", "input.txt");
     
     internal static void GetUserInput()
@@ -21,12 +21,12 @@ public class LastLineReader
             lines[i] = Console.ReadLine();
         }
         
-        File.WriteAllLines(filePath, lines);
+        File.WriteAllLines(_filePath, lines);
     }
 
     internal static void ReadLastLine()
     {
-        string[] lines = File.ReadAllLines(filePath);
+        string[] lines = File.ReadAllLines(_filePath);
         Console.WriteLine($"Last line: {lines[^1]}");
     }
 }

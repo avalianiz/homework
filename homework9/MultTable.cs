@@ -2,7 +2,7 @@
 
 public class MultTable
 {
-    private static string filePath = 
+    private static string _filePath = 
         Path.Combine(@"D:\RiderProjects\homework\homework9", "table.txt");
     
     
@@ -15,7 +15,7 @@ public class MultTable
             return;
         }
 
-        using StreamWriter streamWriter = new StreamWriter(filePath);
+        using StreamWriter streamWriter = new StreamWriter(_filePath);
 
         for (int i = 1; i <= 10; i++)
         {

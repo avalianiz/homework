@@ -5,7 +5,8 @@ class Program
     static void Main(string[] args)
     {
         //Task1();
-        MultTable.PrintTable();
+        //MultTable.PrintTable();
+        StringToXml.ConvertToXml();
     }
 
 
