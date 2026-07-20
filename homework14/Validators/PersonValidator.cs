@@ -11,7 +11,7 @@ public class PersonValidator : AbstractValidator<Person>
         RuleFor(person => person.CreateDate)
             .NotEmpty()
             .WithMessage("Create date is required.")
-            .LessThanOrEqualTo(DateTime.Today)
+            .Must(createDate => createDate.Date <= DateTime.Today)
             .WithMessage("Create date can not be in the future.");
         
         RuleFor(person => person.FirstName)
