@@ -54,7 +54,7 @@ public class PersonValidator : AbstractValidator<Person>
         When(person => person.PersonAddress is not null, () =>
         {
             RuleFor(person => person.PersonAddress!)
-                .SetValidator(new AddressValidator()); // implementing address validator now
+                .SetValidator(new AddressValidator()); // validate address only after we know there is one
         });
     }
 }
