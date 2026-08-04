@@ -143,7 +143,7 @@ class Program
             return;
         }
 
-        for (int i = 0; i < x; i++)
+        for (int i = 1; i < x; i++)
         {
             if (i % 2 == 0)
             {
@@ -153,4 +153,5 @@ class Program
     }
 
     #endregion
+    
 }
