@@ -406,6 +406,9 @@ FodyWeavers.xsd
 *.sln.iml
 .idea/
 
+# ASP.NET Core scaffolded HTTP request files
+*.http
+
 ##
 ## Visual studio for Mac
 ##

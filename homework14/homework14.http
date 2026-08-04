@@ -1,6 +1,0 @@
-@homework14_HostAddress = http://localhost:5062
-
-GET {{homework14_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
