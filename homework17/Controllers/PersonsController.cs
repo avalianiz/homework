@@ -1,5 +1,6 @@
 ﻿using homework17.Data;
 using homework17.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,9 +8,9 @@ namespace homework17.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class PersonsController : ControllerBase
 {
-
     private readonly AppDbContext _dbContext;
 
     public PersonsController(AppDbContext dbContext)
@@ -17,7 +18,6 @@ public class PersonsController : ControllerBase
         _dbContext = dbContext;
     }
 
-    // POST
     [HttpPost]
     public async Task<ActionResult<IEnumerable<Person>>> Create(Person person)
     {
@@ -27,14 +27,12 @@ public class PersonsController : ControllerBase
         return Ok(await _dbContext.Persons.Include(p => p.PersonAddress).ToListAsync());
     }
 
-    // get
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Person>>> GetAll()
     {
         return Ok(await _dbContext.Persons.Include(p => p.PersonAddress).ToListAsync());
     }
 
-    // get/{id}
     [HttpGet("{id:guid}")]
     public async Task<ActionResult<Person>> GetById(Guid id)
     {
@@ -48,8 +46,6 @@ public class PersonsController : ControllerBase
         return Ok(person);
     }
 
-    // get/filter
-    
     [HttpGet("filter")]
     public async Task<ActionResult<IEnumerable<Person>>> Filter(
         [FromQuery] string? city,
@@ -65,9 +61,9 @@ public class PersonsController : ControllerBase
 
         return Ok(await query.ToListAsync());
     }
-    
-    // delete/id
-    [HttpDelete(("{id:guid}"))]
+
+    [HttpDelete("{id:guid}")]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult<IEnumerable<Person>>> Delete(Guid id)
     {
         var person = await _dbContext.Persons.FindAsync(id);
@@ -77,12 +73,12 @@ public class PersonsController : ControllerBase
 
         _dbContext.Persons.Remove(person);
         await _dbContext.SaveChangesAsync();
-        
-        return Ok(await  _dbContext.Persons.Include(p => p.PersonAddress).ToListAsync());
+
+        return Ok(await _dbContext.Persons.Include(p => p.PersonAddress).ToListAsync());
     }
-    
-    // put/id
+
     [HttpPut("{id:guid}")]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult<IEnumerable<Person>>> Update(Guid id, Person updatedPerson)
     {
         var person = await _dbContext.Persons
@@ -102,10 +98,9 @@ public class PersonsController : ControllerBase
         person.PersonAddress.City = updatedPerson.PersonAddress.City;
         person.PersonAddress.Country = updatedPerson.PersonAddress.Country;
         person.PersonAddress.HomeNumber = updatedPerson.PersonAddress.HomeNumber;
-        
+
         await _dbContext.SaveChangesAsync();
 
         return Ok(person);
     }
-
 }
